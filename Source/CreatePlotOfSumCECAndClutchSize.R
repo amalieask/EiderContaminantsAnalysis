@@ -32,7 +32,7 @@ allCECs <- mutate(allCECs, sumBPs = BPA + BPS + BPAF,
                sumBzPs = BzP1 + BzP3,
                sumPMs = mDP + mIBP + mBP + mHP + mEHP + mMP + mEP,
                sumBTRsBTHs = TTR + OHBTH + SBTH + MeSBTH + SCNMeSBTH,
-               sumParabens = EtP + PrP + BuP + BezP,
+               sumParabens = MeP + EtP + PrP + BuP + BezP,
                sumCECs = sumBPs + sumBzPs + sumPMs + sumBTRsBTHs + sumParabens)
 
 # Filter dataset

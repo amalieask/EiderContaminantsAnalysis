@@ -7,14 +7,14 @@
 # Load libraries
 library(tidyverse)
 library(readxl)
-library(cowplot)
+library(patchwork)
 
 # Create palette
 pal <- c("#E69F00", "#56B4E9", "#0072B2", "#F0E442",  "#009E73", "#D55E00", "#CC79A7", "#999999")
 
 
 # Import dataset (which is created manually from the values provided by the 
-# "summaryStatisticsAllObs" function in the Python scipt)
+# "summaryStatisticsAllObs" function in the Python script)
 sumStats <- read_excel("data/summaryStatsEiderPlasma2021.xlsx")
 
 # Force the order of the IDs and compounds
@@ -102,7 +102,7 @@ mep <- ggplot(mEP, aes(x = incubation, y = mean, ymin=mean-se, ymax=mean+se, fil
   scale_x_discrete(labels = c("T1", "T2"))
 
 # Combine the individual plots into one plot
-barPlot <- plot_grid(bpa, bps, bzp3, mmp, mep)
+barPlot <- bpa + bps + bzp3 + mmp + mep + plot_layout(guides = "collect")
 barPlot
 
 # Export figure
